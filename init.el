@@ -102,6 +102,10 @@
 
 ;; Mode-specific evil bindings
 (evil-define-key 'motion help-mode-map (kbd "TAB") 'forward-button)
+(evil-set-initial-state 'bookmark-bmenu-mode 'normal)
+(evil-define-key 'normal bookmark-bmenu-mode-map
+  "q" 'quit-window
+  (kbd "RET") 'bookmark-bmenu-this-window)
 
 ;; ----- MAGIT -----
 (evil-set-initial-state 'magit-mode 'normal)
