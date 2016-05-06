@@ -1,0 +1,9 @@
+#.+#
+auto-save-list/
+backup/
+bookmarks
+custom.el
+elpa
+projectile-bookmarks.eld
+.python-environments/
+recentf
