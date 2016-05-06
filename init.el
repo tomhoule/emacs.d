@@ -41,6 +41,7 @@
     evil-leader
     evil-surround
     flycheck
+    flycheck-typescript
     gotham-theme
     gruvbox-theme
     helm
@@ -107,6 +108,9 @@
 (evil-leader/set-key-for-mode 'lisp-interaction-mode "e" 'eval-last-sexp)
 (evil-define-key 'normal python-mode-map (kbd "gd") 'jedi:goto-definition)
 (evil-define-key 'normal python-mode-map (kbd "gs") 'jedi:show-doc)
+(evil-define-key 'normal tide-mode-map (kbd "gd") 'tide-jump-to-definition)
+(evil-define-key 'normal tide-mode-map (kbd "C-o") 'tide-jump-back)
+(evil-define-key 'normal tide-mode-map (kbd "gs") 'tide-documentation-at-point)
 
 ;; ----- COMPANY -----
 (global-company-mode 1)
@@ -114,6 +118,7 @@
 
 ;; ----- FLYCHECK -----
 (defvar flycheck-check-syntax-automatically '(save))
+(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup)
 
 ;; ----- HELM -----
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -141,6 +146,12 @@
             (run-python 1)
             (eldoc-mode 1)
             (py-autopep8-enable-on-save)))
+
+(add-to-list 'auto-mode-alist '("\\.tsx" . typescript-mode))
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-mode)
+            (tide-start-server-if-required))
 
 (provide 'init)
 ;;; init.el ends here
