@@ -80,20 +80,18 @@
 
 (global-evil-leader-mode 1)
 (evil-leader/set-leader "»")
-(evil-leader/set-key "ag" 'projectile-ag)
-(evil-leader/set-key "bb" 'list-buffers)
-(evil-leader/set-key "bmc" 'bookmark-set)
-(evil-leader/set-key "bmg" 'bookmark-bmenu-list)
-(evil-leader/set-key "o" 'helm-find-files)
-(evil-leader/set-key "git" 'magit-status)
-(evil-leader/set-key "ln" 'flycheck-next-error)
-(evil-leader/set-key "lp" 'flycheck-previous-error)
-(evil-leader/set-key "ff" 'helm-projectile)
-(evil-leader/set-key "t"
-  (lambda ()
-    (interactive)
-    (tom/call-terminal)))
-(evil-leader/set-key "w" 'save-buffer)
+(evil-leader/set-key
+  "ag" 'projectile-ag
+  "bb" 'list-buffers
+  "bmc" 'bookmark-set
+  "bmg" 'bookmark-bmenu-list
+  "o" 'helm-find-files
+  "git" 'magit-status
+  "ln" 'flycheck-next-error
+  "lp" 'flycheck-previous-error
+  "ff" 'helm-projectile
+  "t" (lambda () (interactive) (tom/call-terminal))
+  "w" 'save-buffer)
 
 (evil-mode 1)
 (diminish 'undo-tree-mode)
@@ -104,13 +102,6 @@
 
 ;; Mode-specific evil bindings
 (evil-define-key 'motion help-mode-map (kbd "TAB") 'forward-button)
-(evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
-(evil-leader/set-key-for-mode 'lisp-interaction-mode "e" 'eval-last-sexp)
-(evil-define-key 'normal python-mode-map (kbd "gd") 'jedi:goto-definition)
-(evil-define-key 'normal python-mode-map (kbd "gs") 'jedi:show-doc)
-(evil-define-key 'normal tide-mode-map (kbd "gd") 'tide-jump-to-definition)
-(evil-define-key 'normal tide-mode-map (kbd "C-o") 'tide-jump-back)
-(evil-define-key 'normal tide-mode-map (kbd "gs") 'tide-documentation-at-point)
 
 ;; ----- MAGIT -----
 (evil-set-initial-state 'magit-mode 'normal)
@@ -150,9 +141,17 @@
             (diminish 'whitespace-mode)
             (flycheck-mode 1)))
 
+;; ----- ELISP -----
+(evil-leader/set-key-for-mode 'lisp-interaction-mode "e" 'eval-last-sexp)
+(evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (eldoc-mode 1)))
+
+;; ----- PYTHON -----
+(evil-define-key 'normal python-mode-map
+  (kbd "gd") 'jedi:goto-definition
+  (kbd "gs") 'jedi:show-doc)
 
 (add-hook 'python-mode-hook
           (lambda ()
@@ -162,6 +161,11 @@
             (eldoc-mode 1)
             (py-autopep8-enable-on-save)))
 
+;; ----- TYPESCRIPT -----
+(evil-define-key 'normal tide-mode-map
+  (kbd "gd") 'tide-jump-to-definition
+  (kbd "C-o") 'tide-jump-back
+  (kbd "gs") 'tide-documentation-at-point)
 (add-to-list 'auto-mode-alist '("\\.tsx" . typescript-mode))
 (add-hook 'typescript-mode-hook
           (lambda ()
