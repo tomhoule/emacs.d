@@ -4,9 +4,9 @@
 
 ;;; Code:
 
-(require 'package)
-
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
+
+(require 'package)
 (require 'utils)
 
 ;; ----- CUSTOM FILE -----
@@ -117,6 +117,7 @@
 (diminish 'company-mode)
 
 ;; ----- FLYCHECK -----
+(defvar flycheck-emacs-lisp-load-path 'inherit)
 (defvar flycheck-check-syntax-automatically '(save))
 (add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup)
 
