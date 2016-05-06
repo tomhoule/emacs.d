@@ -41,7 +41,7 @@
     evil-leader
     evil-surround
     flycheck
-    flycheck-typescript
+    flycheck-typescript-tslint
     gotham-theme
     gruvbox-theme
     helm
@@ -151,7 +151,7 @@
 (add-hook 'typescript-mode-hook
           (lambda ()
             (tide-mode)
-            (tide-start-server-if-required))
+            (tide-start-server-if-required)))
 
 (provide 'init)
 ;;; init.el ends here
