@@ -90,7 +90,7 @@
   "ln" 'flycheck-next-error
   "lp" 'flycheck-previous-error
   "ff" 'helm-projectile
-  "t" (lambda () (interactive) (tom/call-terminal))
+  "t" #'(lambda () (interactive) (tom/call-terminal))
   "w" 'save-buffer)
 
 (evil-mode 1)
@@ -139,7 +139,7 @@
 
 ;; ----- MODES -----
 (add-hook 'prog-mode-hook
-          (lambda ()
+          #'(lambda ()
             (linum-mode 1)
             (whitespace-mode 1)
             (diminish 'whitespace-mode)
@@ -149,7 +149,7 @@
 (evil-leader/set-key-for-mode 'lisp-interaction-mode "e" 'eval-last-sexp)
 (evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
 (add-hook 'emacs-lisp-mode-hook
-          (lambda ()
+          #'(lambda ()
             (eldoc-mode 1)))
 
 ;; ----- PYTHON -----
@@ -158,7 +158,7 @@
   (kbd "gs") 'jedi:show-doc)
 
 (add-hook 'python-mode-hook
-          (lambda ()
+          #'(lambda ()
             (add-to-list 'company-backends 'company-jedi)
             (pyvenv-mode 1)
             (run-python 1)
@@ -172,7 +172,7 @@
   (kbd "gs") 'tide-documentation-at-point)
 (add-to-list 'auto-mode-alist '("\\.tsx" . typescript-mode))
 (add-hook 'typescript-mode-hook
-          (lambda ()
+          #'(lambda ()
             (tide-mode)
             (tide-start-server-if-required)))
 
