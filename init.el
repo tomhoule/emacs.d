@@ -161,8 +161,6 @@
           #'(lambda ()
             (add-to-list 'company-backends 'company-jedi)
             (pyvenv-mode 1)
-            (run-python 1)
-            (eldoc-mode 1)
             (py-autopep8-enable-on-save)))
 
 ;; ----- TYPESCRIPT -----
