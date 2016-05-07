@@ -4,6 +4,7 @@ backup/
 bookmarks
 custom.el
 elpa
+eshell/
 projectile-bookmarks.eld
 .python-environments/
 recentf
