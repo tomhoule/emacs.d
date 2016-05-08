@@ -84,6 +84,8 @@
   "bb" 'list-buffers
   "bmc" 'bookmark-set
   "bmg" 'bookmark-bmenu-list
+  "db" 'gud-break
+  "e" 'eval-expression
   "o" 'helm-find-files
   "git" 'magit-status
   "ln" 'flycheck-next-error
@@ -145,8 +147,6 @@
             (flycheck-mode 1)))
 
 ;; ----- ELISP -----
-(evil-leader/set-key-for-mode 'lisp-interaction-mode "e" 'eval-last-sexp)
-(evil-leader/set-key-for-mode 'emacs-lisp-mode "e" 'eval-last-sexp)
 (add-hook 'emacs-lisp-mode-hook
           #'(lambda ()
             (eldoc-mode 1)))
