@@ -43,7 +43,6 @@
     flycheck
     flycheck-typescript-tslint
     gotham-theme
-    gruvbox-theme
     helm
     helm-projectile
     magit
