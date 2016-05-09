@@ -151,6 +151,9 @@
             (pyvenv-mode 1)
             (py-autopep8-enable-on-save)))
 
+;; ----- SHELL -----
+(evil-set-initial-state 'shell-mode 'normal)
+
 ;; ----- TYPESCRIPT -----
 (evil-define-key 'normal tide-mode-map
   (kbd "gd") 'tide-jump-to-definition
