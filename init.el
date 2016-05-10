@@ -77,7 +77,6 @@
                     :height 110)
 
 ;; ----- EVIL ------
-
 (global-evil-leader-mode 1)
 (evil-leader/set-leader "»")
 (evil-leader/set-key
@@ -129,15 +128,15 @@
 ;; ----- MODES -----
 (add-hook 'prog-mode-hook
           #'(lambda ()
-            (linum-mode 1)
-            (whitespace-mode 1)
-            (diminish 'whitespace-mode)
-            (flycheck-mode 1)))
+              (linum-mode 1)
+              (whitespace-mode 1)
+              (diminish 'whitespace-mode)
+              (flycheck-mode 1)))
 
 ;; ----- ELISP -----
 (add-hook 'emacs-lisp-mode-hook
           #'(lambda ()
-            (eldoc-mode 1)))
+              (eldoc-mode 1)))
 
 ;; ----- PYTHON -----
 (evil-define-key 'normal python-mode-map
@@ -158,8 +157,9 @@
 (add-to-list 'auto-mode-alist '("\\.tsx" . typescript-mode))
 (add-hook 'typescript-mode-hook
           #'(lambda ()
-            (tide-mode)
-            (tide-start-server-if-required)))
+              (tide-setup)
+              (flycheck-add-next-checker 'typescript-tide 'typescript-tslint)
+              (eldoc-mode 1)))
 
 (provide 'init)
 ;;; init.el ends here
