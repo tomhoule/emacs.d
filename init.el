@@ -78,6 +78,7 @@
 
 ;; ----- EVIL ------
 (global-evil-leader-mode 1)
+(setq evil-leader/no-prefix-mode-rx '("magit-.*-mode" "dired-mode"))
 (evil-leader/set-leader "»")
 (evil-leader/set-key
   "ag" 'projectile-ag
@@ -110,10 +111,14 @@
 
 ;; ----- DIRED -----
 (evil-set-initial-state 'dired-mode 'emacs)
-(define-key dired-mode-map (kbd "C-w") evil-window-map)
+(add-hook 'dired-mode-hook
+          #'(lambda ()
+              (define-key dired-mode-map (kbd "C-w") evil-window-map)))
 
 ;; ----- MAGIT -----
-(define-key magit-mode-map (kbd "C-w") evil-window-map)
+(add-hook 'magit-status-mode-hook
+          #'(lambda ()
+              (define-key magit-status-mode-map (kbd "C-w") evil-window-map)))
 
 ;; ----- FLYCHECK -----
 (defvar flycheck-emacs-lisp-load-path 'inherit)
