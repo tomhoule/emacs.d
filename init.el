@@ -41,7 +41,6 @@
     evil-leader
     evil-surround
     flycheck
-    flycheck-typescript-tslint
     gotham-theme
     helm
     helm-projectile
@@ -111,7 +110,6 @@
 ;; ----- FLYCHECK -----
 (defvar flycheck-emacs-lisp-load-path 'inherit)
 (defvar flycheck-check-syntax-automatically '(save))
-(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup)
 
 ;; ----- HELM -----
 (global-set-key (kbd "M-x") 'helm-M-x)
