@@ -1,0 +1,5 @@
+# -*- mode: typescript -*-
+# name: console.log
+# key: cl
+# --
+console.log($1);

@@ -120,6 +120,12 @@
 (projectile-global-mode 1)
 (diminish 'projectile-mode)
 
+;; ----- SNIPPETS -----
+(defvar yas-snippet-dirs
+  `(,(concat user-emacs-directory "snippets")))
+(yas-global-mode 1)
+(diminish 'yas-minor-mode)
+
 ;; ----- MODES -----
 (add-hook 'prog-mode-hook
           #'(lambda ()
