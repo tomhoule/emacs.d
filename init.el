@@ -108,6 +108,13 @@
 (global-company-mode 1)
 (diminish 'company-mode)
 
+;; ----- DIRED -----
+(evil-set-initial-state 'dired-mode 'emacs)
+(define-key dired-mode-map (kbd "C-w") evil-window-map)
+
+;; ----- MAGIT -----
+(define-key magit-mode-map (kbd "C-w") evil-window-map)
+
 ;; ----- FLYCHECK -----
 (defvar flycheck-emacs-lisp-load-path 'inherit)
 (defvar flycheck-check-syntax-automatically '(save))
@@ -148,6 +155,9 @@
               (add-to-list 'company-backends 'company-jedi)
               (pyvenv-mode 1)
               (py-autopep8-enable-on-save)))
+
+;; ----- SHELL -----
+(evil-set-initial-state 'shell-mode 'normal)
 
 ;; ----- TYPESCRIPT -----
 (evil-define-key 'normal tide-mode-map
