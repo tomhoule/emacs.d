@@ -45,9 +45,11 @@
     helm
     helm-projectile
     magit
+    paradox
     projectile
     py-autopep8
     python-mode
+    pyvenv
     tide  ; typescript
     yaml-mode
     yasnippet))
@@ -138,9 +140,9 @@
 
 (add-hook 'python-mode-hook
           #'(lambda ()
-            (add-to-list 'company-backends 'company-jedi)
-            (pyvenv-mode 1)
-            (py-autopep8-enable-on-save)))
+              (add-to-list 'company-backends 'company-jedi)
+              (pyvenv-mode 1)
+              (py-autopep8-enable-on-save)))
 
 ;; ----- TYPESCRIPT -----
 (evil-define-key 'normal tide-mode-map
