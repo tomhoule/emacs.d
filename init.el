@@ -50,6 +50,7 @@
     py-autopep8
     python-mode
     pyvenv
+    sass-mode
     tide  ; typescript
     yaml-mode
     yasnippet))
