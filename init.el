@@ -121,6 +121,14 @@
           #'(lambda ()
               (define-key magit-status-mode-map (kbd "C-w") evil-window-map)))
 
+(add-hook 'magit-diff-mode-hook
+          #'(lambda ()
+              (define-key magit-status-mode-map (kbd "C-w") evil-window-map)))
+
+(add-hook 'magit-log-mode-hook
+          #'(lambda ()
+              (define-key magit-status-mode-map (kbd "C-w") evil-window-map)))
+
 ;; ----- FLYCHECK -----
 (defvar flycheck-emacs-lisp-load-path 'inherit)
 (defvar flycheck-check-syntax-automatically '(save))
