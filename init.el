@@ -20,6 +20,12 @@
 (setq custom-file custom-file-path)
 (load custom-file-path)
 
+;; ----- PRIVATE FILE -----
+(defvar private-file-path
+  (concat user-emacs-directory "private.el"))
+
+(load private-file-path)
+
 ;; ----- BACKUP FILES -----
 (defvar tom/backup-dir (concat user-emacs-directory "backup/"))
 (setq backup-directory-alist
