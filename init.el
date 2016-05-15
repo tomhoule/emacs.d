@@ -52,6 +52,7 @@
     pyvenv
     sass-mode
     tide  ; typescript
+    toml-mode
     yaml-mode
     yasnippet))
 
