@@ -45,6 +45,7 @@
     evil
     evil-commentary
     evil-leader
+    evil-snipe
     evil-surround
     flycheck
     gotham-theme
@@ -105,6 +106,8 @@
 
 (evil-mode 1)
 (diminish 'undo-tree-mode)
+(evil-snipe-mode 1)
+(setq evil-snipe-scope 'buffer)
 (evil-define-key 'normal global-map (kbd "é") 'evil-ex)
 (evil-define-key 'insert global-map (kbd "C-l") 'evil-normal-state)
 
