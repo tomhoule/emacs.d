@@ -106,6 +106,9 @@
 
 ;; Mode-specific evil bindings
 (evil-define-key 'motion help-mode-map (kbd "TAB") 'forward-button)
+(add-hook 'calc-mode-hook
+          #'(lambda ()
+              (define-key calc-mode-map (kbd "C-w") evil-window-map)))
 
 ;; ----- COMPANY -----
 (global-company-mode 1)
